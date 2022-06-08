@@ -11,8 +11,11 @@ const MainComponent = ({
 };
 
 // memoized component
+const areEqual = (prev, next) => {
+  return prev.age === next.age;
+};
 const ChildComponent = memo(({ user: { name, age } }) => {
     return (
         <div>user name: {name}, user age: {age}</div>
     )
-});
+}, areEqual);
